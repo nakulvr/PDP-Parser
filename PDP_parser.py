@@ -2,7 +2,8 @@ file_path = r'<FULL PATH TO YOUR RACKET FILE>'
 file = open(file_path,'r')
 functions = []
 comments = []
-count = 0
+contracts = []
+incorrect_count = 0
 
 
 def function_parse(func_comments, items_boolean):
@@ -37,6 +38,9 @@ print("Total functions provided =", functions.__len__())
 functions = []
 
 for line in file:
+    if (line.find('->') >= 0) and (line.find('-fn') < 0):
+        con_str = line.split(':')
+        contracts.append(con_str[0].replace(';; ', '').rstrip().lstrip())
     if line.find('(define (') >= 0:
         if line.find('-fn') >= 0:
             continue
@@ -44,6 +48,12 @@ for line in file:
         functions.append(defined_func[1].replace('(', ''))
 
 file.seek(0)
+
+for func_name in functions:
+    if not (func_name in contracts):
+        incorrect_count += 1
+        print('{0} function is missing contract (or a typo) !!!, '
+              'please check the rest of it\'s recipe too'.format(func_name))
 
 for line in file:
     for func_name in functions:
@@ -64,7 +74,8 @@ for line in file:
                 if not items_boolean[3]:
                     not_defined.append('STRATEGY')
                 if not_defined.__len__() != 0:
-                    count += 1
+                    incorrect_count += 1
                     print('\"{0}\" missing statements -> {1}'.format(func_name, not_defined))
-if count == 0:
+
+if incorrect_count == 0:
     print('all functions are following the recipe correctly !!!!')
