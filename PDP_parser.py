@@ -1,4 +1,5 @@
 file_path = r'<FULL PATH TO YOUR RACKET FILE>'
+
 file = open(file_path,'r')
 functions = []
 comments = []
@@ -52,7 +53,7 @@ file.seek(0)
 for func_name in functions:
     if not (func_name in contracts):
         incorrect_count += 1
-        print('{0} function is missing contract (or a typo) !!!, '
+        print('{0} function is missing contract (or present in a different line) !!!, '
               'please check the rest of it\'s recipe too'.format(func_name))
 
 for line in file:
@@ -79,3 +80,5 @@ for line in file:
 
 if incorrect_count == 0:
     print('all functions are following the recipe correctly !!!!')
+
+file.close()
