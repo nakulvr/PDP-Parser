@@ -6,14 +6,18 @@ FUNCTIONALITY:
 
 REQUIREMENTS: 
 
-1. The provided functions should be mentioned in new lines in the following format:
+1. You need to provide the filename in script ('file_path' variable):
+
+file_path = r'<FULL PATH TO YOUR RACKET FILE>'
+ 
+2. The provided functions should be mentioned in new lines in the following format:
 
 (provide
  function-1
  function-2
  ...)
 
-2. The definition of functions should be in one line in the following format:
+3. The definition of functions should be in one line in the following format:
 
 (define (funtion-1 ...)
  ...)
