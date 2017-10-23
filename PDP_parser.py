@@ -8,6 +8,7 @@ line_number = -3
 incorrect_count = 0
 functions_line_num = {}
 
+
 def function_parse(func_comments, items_boolean):
 
     for comm in func_comments:
