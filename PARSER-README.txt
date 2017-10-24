@@ -35,7 +35,7 @@ OR
 <func_name> :
 (...)
 
-Else will prompt an error for the given fuction with the line number of its definition
+Else will prompt an error for the given fuction with the line number of its definition.
 
 EXAMPLES:
 
