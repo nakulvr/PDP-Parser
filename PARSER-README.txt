@@ -42,7 +42,7 @@ EXAMPLES:
 1. Total functions provided = 7
 "lexer-token" missing statements -> ['GIVEN', 'RETURNS', 'EXAMPLE']
 
-2. ;;lexer-token IS COMMENTED IN PROVIDE !!!
+2. ;;lexer-token IS COMMENTED IN PROVIDE !!!!
 Total functions provided = 6
 all functions are following the recipe correctly !!!!
 
